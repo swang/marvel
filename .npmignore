@@ -1,0 +1,5 @@
+.DS_Store
+npm-debug.log
+jshint.json
+test*.js
+test/*.js
