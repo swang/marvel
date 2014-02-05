@@ -7,6 +7,9 @@ var request = require('request')
 plural.addRule(/series/i, function(w) { return w })
 
 var Marvel = function(opts) {
+  if (opts.privateKey === undefined || opts.publicKey === undefined) {
+    throw new Error('Unable to create a hash because of missing privateKey/publicKey')
+  }
   this.publicKey = opts.publicKey
   this.privateKey = opts.privateKey
   this.apiDomain = "http://gateway.marvel.com"
