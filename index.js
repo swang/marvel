@@ -21,7 +21,7 @@ var resources = ['Comic', 'Character', 'Creator', 'Event', 'Series', 'Story']
 responseFn = function(callback) {
   return function (err, resp, body) {
     if (!err && resp.statusCode == 200) {
-      return callback(err, body)
+      return callback(err, JSON.parse(body))
     }
     return callback(err)
   }
