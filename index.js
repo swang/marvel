@@ -12,7 +12,7 @@ var Marvel = function(opts) {
   }
   this.publicKey = opts.publicKey
   this.privateKey = opts.privateKey
-  this.apiDomain = "https://gateway.marvel.com"
+  this.apiDomain = "http://gateway.marvel.com"
 }
 
 var resources = ['Comic', 'Character', 'Creator', 'Event', 'Series', 'Story']
