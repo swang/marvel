@@ -1,7 +1,10 @@
 'use strict';
+var Resource = require('./lib/resource.js')
+
+var Marvel, responseFn, merge
 
 // merge
-var merge = function(a, b) {
+merge = function(a, b) {
   var k
   for (k in a) {
     if (a.hasOwnProperty(k) && b.hasOwnProperty(k) === false) {
@@ -11,18 +14,10 @@ var merge = function(a, b) {
   return b
 }
 
-var responseFn = function(callback) {
-  return function (err, resp, body) {
-    if (err) { return callback(err) }
-    if (resp.statusCode > 400 && resp.statusCode < 500) {
-      return callback(JSON.parse(body))
-    }
-    return callback(err, JSON.parse(body))
-  }
-}
+Marvel.API_VERSION = "v1"
+Marvel.VERSION = require('./package').version
 
-
-var Marvel = function(opts) {
+Marvel = function(opts) {
   var defaults = {
     apiDomain: "https://gateway.marvel.com"
   , gzip: true
@@ -40,14 +35,9 @@ var Marvel = function(opts) {
   this.apiDomain = opts.apiDomain
   this.gzip = opts.gzip
 
-  this.characters = new Resource('characters', opts)
-  console.log(Object.keys(this.characters))
+  this.characters = new Resource('characters', merge(opts, { API_VERSION: Marvel.API_VERSION })
 
 }
-
-Marvel.API_VERSION = "v1"
-Marvel.VERSION = require('./package').version
-
 
 Marvel.prototype.keys = function(priv, pub) {
   this.privateKey = priv
