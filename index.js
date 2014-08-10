@@ -20,8 +20,12 @@ var resources = ['Comic', 'Character', 'Creator', 'Event', 'Series', 'Story']
 
 responseFn = function(callback) {
   return function (err, resp, body) {
-    if (!err && resp.statusCode == 200) {
+    if (!err && resp.statusCode === 200) {
       return callback(err, JSON.parse(body))
+    }
+    if (resp.statusCode === 429) { // Rate-limit exceeded
+      //'{"code":"RequestThrottled","message":"You have exceeded your rate limit.  Please try again later."}'
+      return callback(JSON.parse(body))
     }
     return callback(err)
   }
