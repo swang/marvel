@@ -12,7 +12,7 @@ var Marvel = function(opts) {
   }
   this.publicKey = opts.publicKey
   this.privateKey = opts.privateKey
-  this.apiDomain = "http://gateway.marvel.com"
+  this.apiDomain = "https://gateway.marvel.com"
 }
 
 var resources = ['Comic', 'Character', 'Creator', 'Event', 'Series', 'Story']
@@ -59,7 +59,8 @@ resources.forEach(function(res) {
 
     request({
       uri: uri,
-      qs: qs
+      qs: qs,
+      strictSSL: false
     }, responseFn(callback))
 
   }
@@ -107,7 +108,8 @@ resources.forEach(function(res) {
 
       request({
         uri: uri,
-        qs: qs
+        qs: qs,
+        strictSSL: false
       }, responseFn(callback))
     }
   })
