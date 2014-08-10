@@ -15,12 +15,6 @@ describe('Marvel', function() {
       should(false).ok
     })
   })
-  describe('getHash', function() {
-    it('should return a proper hash', function() {
-      var test = new Marvel({ publicKey: "aaa", privateKey: "bbb" })
-      test.getHash("1234").should.equal("ad22a55bbfa12a3628abf69ff7e6074f")
-    })
-  })
 })
 
 // describe('Array', function(){

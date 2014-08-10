@@ -14,9 +14,6 @@ merge = function(a, b) {
   return b
 }
 
-Marvel.API_VERSION = "v1"
-Marvel.VERSION = require('./package').version
-
 Marvel = function(opts) {
   var defaults = {
     apiDomain: "https://gateway.marvel.com"
@@ -35,9 +32,12 @@ Marvel = function(opts) {
   this.apiDomain = opts.apiDomain
   this.gzip = opts.gzip
 
-  this.characters = new Resource('characters', merge(opts, { API_VERSION: Marvel.API_VERSION })
+  this.characters = new Resource('characters', merge(opts, { API_VERSION: Marvel.API_VERSION }))
 
 }
+
+Marvel.API_VERSION = "v1"
+Marvel.VERSION = require('./package').version
 
 Marvel.prototype.keys = function(priv, pub) {
   this.privateKey = priv
