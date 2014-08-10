@@ -7,13 +7,13 @@ describe('Resource', function() {
   var resourceCalls, test
 
   beforeEach(function(done) {
-    test = new Resource("test", { publicKey: "aaa", privateKey: "bbb" })
+    test = new Resource('test', { publicKey: 'aaa', privateKey: 'bbb' })
     done()
   })
 
   describe('hash', function() {
     it('should return a proper hash', function() {
-      test.hash("1234").should.equal("ad22a55bbfa12a3628abf69ff7e6074f")
+      test.hash('1234').should.equal('ad22a55bbfa12a3628abf69ff7e6074f')
     })
   })
 
@@ -31,13 +31,13 @@ describe('Resource', function() {
   for (var i = 0; i < resourceCalls.length; i++) {
     describe(resourceCalls[i], function() {
       it('should set ' + resourceCalls[i] + ' in `params` property', function() {
-        test[resourceCalls[i]]("_abcd")
-        test.param[resourceCalls[i]].should.equal("_abcd")
+        test[resourceCalls[i]]('_abcd')
+        test.param[resourceCalls[i]].should.equal('_abcd')
       })
     })
   }
 
-  describe("limit", function() {
+  describe('limit', function() {
     it('should set limit properly when called with one param', function() {
       test.limit(20)
       test.param.limit.should.equal(20)

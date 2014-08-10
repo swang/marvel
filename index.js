@@ -1,7 +1,7 @@
 'use strict';
 var Resource = require('./lib/resource.js')
 
-var Marvel, responseFn, merge
+var Marvel, merge
 
 // merge
 merge = function(a, b) {
@@ -16,7 +16,7 @@ merge = function(a, b) {
 
 Marvel = function(opts) {
   var defaults = {
-    apiDomain: "https://gateway.marvel.com"
+    apiDomain: 'https://gateway.marvel.com'
   , gzip: true
   }
 
@@ -36,7 +36,7 @@ Marvel = function(opts) {
 
 }
 
-Marvel.API_VERSION = "v1"
+Marvel.API_VERSION = 'v1'
 Marvel.VERSION = require('./package').version
 
 Marvel.prototype.keys = function(priv, pub) {
