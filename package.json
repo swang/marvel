@@ -1,10 +1,10 @@
 {
   "name": "marvel",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "API wrapper for Marvel Comics",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha test/*.js --reporter=spec"
   },
   "repository": {
     "type": "git",
