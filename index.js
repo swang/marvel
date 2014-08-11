@@ -18,7 +18,7 @@ Marvel = function(opts) {
   var defaults = {
     apiDomain: 'https://gateway.marvel.com'
   , gzip: true
-  }
+  }, resOpt
 
   opts = merge(defaults, opts || {})
 
@@ -32,7 +32,13 @@ Marvel = function(opts) {
   this.apiDomain = opts.apiDomain
   this.gzip = opts.gzip
 
-  this.characters = new Resource('characters', merge(opts, { API_VERSION: Marvel.API_VERSION }))
+  resOpt = merge(opts, { API_VERSION: Marvel.API_VERSION })
+  this.characters = new Resource('characters', resOpt)
+  this.comics = new Resource('comics', resOpt)
+  this.creators = new Resource('creators', resOpt)
+  this.events = new Resource('events', resOpt)
+  this.series = new Resource('series', resOpt)
+  this.stories = new Resource('stories', resOpt)
 
 }
 

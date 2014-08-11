@@ -7,7 +7,7 @@ describe('Resource', function() {
   var resourceCalls, test
 
   beforeEach(function(done) {
-    test = new Resource('test', { publicKey: 'aaa', privateKey: 'bbb' })
+    test = new Resource('characters', { publicKey: 'aaa', privateKey: 'bbb' })
     done()
   })
 
