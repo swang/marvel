@@ -1,6 +1,6 @@
 {
   "name": "marvel",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "API wrapper for Marvel Comics",
   "main": "index.js",
   "scripts": {
