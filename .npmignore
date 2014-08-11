@@ -5,3 +5,5 @@ test/*.js
 .travis.yml
 .jshintrc
 swagger.json
+old/*
+index_old.js
