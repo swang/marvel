@@ -115,6 +115,7 @@ If two parameters are given, it returns `limit` results only after `offset` matc
 If only one parameter is given, it returns the first `limit` results.
 
 > ## events:
+
 ##### name
 ##### #nameStartsWith
 
@@ -132,6 +133,7 @@ If two parameters are given, it returns `limit` results only after `offset` matc
 If only one parameter is given, it returns the first `limit` results.
 
 > ## series:
+
 ##### #title
 ##### #titleStartsWith
 ##### #startYear
@@ -152,11 +154,6 @@ If two parameters are given, it returns `limit` results only after `offset` matc
 If only one parameter is given, it returns the first `limit` results.
 
 > ## stories:
-##### #comics
-##### #series
-##### #events
-##### #creators
-##### #characters
 
 ##### #modifiedSince(date)
 Limits results to characters that have been modified after inputed `date` (format is: 2014-06-10T16:12:58-0400).
