@@ -26,6 +26,31 @@ marvel.characters
   })
 ```
 
+This finds out the event id for "Civil War" and then returns 50 characters that were in the event (along with their thumbnail picture, if applicable)
+
+```js
+var Marvel = require('marvel')
+
+var marvel = new Marvel({ publicKey: "<pubKey>", privateKey: "<privateKey>"})
+
+marvel.events
+  .name("civil war")
+  .get(function(err, res) {
+    if (err) { throw err }
+    var eventId = res[0].id
+
+    marvel.characters
+      .events(eventId)
+      .limit(50)
+      .get(function(err, res) {
+        if (err) { throw err }
+        res.forEach(function(chr) {
+          console.log(chr.name + " " + (!!chr.thumbnail ? (chr.thumbnail.path + "." + chr.thumbnail.extension) : ""))
+        })
+      })
+  })
+```
+
 # documentation
 
 This new version of the Marvel library tries to make it easier to form queries.
