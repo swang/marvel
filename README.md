@@ -11,7 +11,7 @@ This is a new version of the library where the API is a bit clearer about what y
 npm install marvel
 ```
 
-# example
+# examples
 
 ```js
 var Marvel = require('marvel')
@@ -139,7 +139,7 @@ Returns results only after `num` matches have occurred.
 If two parameters are given, it returns `limit` results only after `offset` matches have occurred.
 If only one parameter is given, it returns the first `limit` results.
 
-> ## events:
+> ## events
 
 ##### name
 ##### #nameStartsWith
@@ -157,7 +157,7 @@ Returns results only after `num` matches have occurred.
 If two parameters are given, it returns `limit` results only after `offset` matches have occurred.
 If only one parameter is given, it returns the first `limit` results.
 
-> ## series:
+> ## series
 
 ##### #title
 ##### #titleStartsWith
@@ -178,7 +178,7 @@ Returns results only after `num` matches have occurred.
 If two parameters are given, it returns `limit` results only after `offset` matches have occurred.
 If only one parameter is given, it returns the first `limit` results.
 
-> ## stories:
+> ## stories
 
 ##### #modifiedSince(date)
 Limits results to characters that have been modified after inputed `date` (format is: 2014-06-10T16:12:58-0400).
