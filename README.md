@@ -80,43 +80,80 @@ If only one parameter is given, it returns the first `num` results.
 
 > ## comics
 
-##### #format
-##### #formatType
-##### #noVariants
-##### #dateDescriptor
-##### #dateRange
-##### #title
-##### #titleStartsWith
+##### #format(name)
+Return comics that only contain format, `name`
+
+Options are: comic, magazine, trade paperback, hardcover, digest, graphic novel, digital comic, infinite comic
+
+##### #formatType(type)
+Return comics that only contain format type, `type`
+
+Options are: comic, collection
+
+##### #noVariants(bool)
+Whether or not to exclude "variants" of the comic, e.g. alternate covers (true for yes, false for no)
+
+##### #dateDescriptor(dateString)
+Return comics within the time period specified in `dateString`
+
+Options are: lastWeek, thisWeek, nextWeek, thisMonth
+
+##### #dateRange(date[, date2, date3])
+Return comics within the predefined range in `date` with additional dates separated by commas
+
+##### #title(name)
+Searches for comics named, `name`.
+
+##### #titleStartsWith(name)
+Searches for comics whose name begins with `name`.
 
 ##### #startYear(num)
 Limits results to comic series that started in the year `num`
 
-
 ##### #issueNumber(num)
 Looks only for comics whose issue number match `num`
 
-##### #diamondCode
-##### #digitalId
-##### #upc
-##### #isbn'
-##### #ean
-##### #issn
-##### #hasDigitalIssue
-##### #sharedAppearances
-##### #collaborators
+##### #diamondCode(code)
+Filter by Diamond Code `code`
+
+##### #digitalId(num)
+Filter by Digital ID, `num`
+
+##### #upc(code)
+Filter by UPC code, `code`
+
+##### #isbn(code)
+Filter by ISBN code, `code`
+
+##### #ean(code)
+Filter by EAN code, `code`
+
+##### #issn(code)
+Filter by ISSN code, `code`
+
+##### #hasDigitalIssue(bool)
+Includes only results which are available digitally if `bool` is true.
+
+##### #sharedAppearances(charId[, charId2, charId3])
+Accepts a comma-separated list of IDs which match only comics in which those characters have appeared together
+
+##### #collaborators(creatorId[, creatorId2, creatorId3])
+Accepts a comma-separated list of IDs which match only comics in which those creators have appeared together
 
 ##### #modifiedSince(date)
 Limits results to characters that have been modified after inputed `date` (format is: 2014-06-10T16:12:58-0400).
 
-##### #orderBy(str)
-Orders the returning JSON by the field `str`. If a minus sign (-) is in front of the `str`, then it orders in descending order.
+##### #orderBy(field)
+Orders the returning JSON by the field, `field`. If a minus sign (-) is in front of the `field`, then it returns in descending order.
+
+Options are: focDate, onsaleDate, title, issueNumber, modified, -focDate, -onsaleDate, -title, -issueNumber, -modified
 
 ##### #offset(num)
 Returns results only after `num` matches have occurred.
 
-##### #limit(offset, limit)
-If two parameters are given, it returns `limit` results only after `offset` matches have occurred.
-If only one parameter is given, it returns the first `limit` results.
+##### #limit(offset, num)
+If two parameters are given, it returns `num` results only after `offset` records have been returned.
+If only one parameter is given, it returns the first `num` results.
 
 > ## creators
 
