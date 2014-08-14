@@ -221,24 +221,39 @@ If only one parameter is given, it returns the first `num` results.
 
 > ## series
 
-##### #title
-##### #titleStartsWith
-##### #startYear
-##### #seriesType
-##### #contains
+##### #title(name)
+Searches for series named, `name`.
+
+##### #titleStartsWith(name)
+Searches for series whose name begins with `name`.
+
+##### #startYear(num)
+Limits results to comic series that started in the year `num`
+
+##### #seriesType(type)
+Filter the series by publication frequency type.
+
+Options are: collection, one shot, limited, ongoing
+
+##### #contains(format[,format2])
+Return only series that contain one or more comics with the specified format
+
+Options are: comic, magazine, trade paperback, hardcover, digest, graphic novel, digital comic, infinite comic
 
 ##### #modifiedSince(date)
 Limits results to characters that have been modified after inputed `date` (format is: 2014-06-10T16:12:58-0400).
 
-##### #orderBy(str)
-Orders the returning JSON by the field `str`. If a minus sign (-) is in front of the `str`, then it orders in descending order.
+##### #orderBy(field)
+Orders the returning JSON by the field, `field`. If a minus sign (-) is in front of the `field`, then it returns in descending order.
+
+Options are: title, modified, startYear, -title, -modified, -startYear
 
 ##### #offset(num)
 Returns results only after `num` matches have occurred.
 
-##### #limit(offset, limit)
-If two parameters are given, it returns `limit` results only after `offset` matches have occurred.
-If only one parameter is given, it returns the first `limit` results.
+##### #limit(offset, num)
+If two parameters are given, it returns `num` results only after `offset` records have been returned.
+If only one parameter is given, it returns the first `num` results.
 
 > ## stories
 
