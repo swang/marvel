@@ -157,26 +157,44 @@ If only one parameter is given, it returns the first `num` results.
 
 > ## creators
 
-##### #firstName
-##### #middleName
-##### #lastName
-##### #suffix
-##### #nameStartsWith
-##### #firstNameStartsWith
-##### #middleNameStartsWith
-##### #lastNameStartsWith
+##### #firstName(name)
+Searches for creators with first name, `name`.
+
+##### #middleName(name)
+Searches for creator with middle name, `name`.
+
+##### #lastName(name)
+Searches for creator with last name, `name`.
+
+##### #suffix(name)
+Searches for creator with suffix/honorific, `name`.
+
+##### #nameStartsWith(str)
+Searches for creator's name that begins with `str`.
+
+##### #firstNameStartsWith(str)
+Searches for creator's first name that begins with `str`.
+
+##### #middleNameStartsWith(str)
+Searches for creator's middle name that begins with `str`.
+
+##### #lastNameStartsWith(str)
+Searches for creator's last name that begins with `str`.
+
 ##### #modifiedSince(date)
 Limits results to characters that have been modified after inputed `date` (format is: 2014-06-10T16:12:58-0400).
 
-##### #orderBy(str)
-Orders the returning JSON by the field `str`. If a minus sign (-) is in front of the `str`, then it orders in descending order.
+##### #orderBy(field)
+Orders the returning JSON by the field, `field`. If a minus sign (-) is in front of the `field`, then it returns in descending order.
+
+Options are: lastName, firstName, middleName, suffix, modified, -lastName, -firstName, -middleName, -suffix, -modified
 
 ##### #offset(num)
 Returns results only after `num` matches have occurred.
 
-##### #limit(offset, limit)
-If two parameters are given, it returns `limit` results only after `offset` matches have occurred.
-If only one parameter is given, it returns the first `limit` results.
+##### #limit(offset, num)
+If two parameters are given, it returns `num` results only after `offset` records have been returned.
+If only one parameter is given, it returns the first `num` results.
 
 > ## events
 
