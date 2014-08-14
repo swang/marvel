@@ -272,3 +272,6 @@ If only one parameter is given, it returns the first `num` results.
 
 # license
 MIT
+
+# author
+Shuan Wang (shuanwang@gmail.com)
