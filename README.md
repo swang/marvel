@@ -266,9 +266,9 @@ Orders the returning JSON by the field `str`. If a minus sign (-) is in front of
 ##### #offset(num)
 Returns results only after `num` matches have occurred.
 
-##### #limit(offset, limit)
-If two parameters are given, it returns `limit` results only after `offset` matches have occurred.
-If only one parameter is given, it returns the first `limit` results.
+##### #limit(offset, num)
+If two parameters are given, it returns `num` results only after `offset` records have been returned.
+If only one parameter is given, it returns the first `num` results.
 
 # license
 MIT
