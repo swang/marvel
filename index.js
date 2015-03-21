@@ -1,4 +1,5 @@
 'use strict';
+
 var Resource = require('./lib/resource.js')
 
 var Marvel, merge
@@ -48,6 +49,7 @@ Marvel.VERSION = require('./package').version
 Marvel.prototype.keys = function(priv, pub) {
   this.privateKey = priv
   this.publicKey = pub
+  return this
 }
 
 module.exports = Marvel
