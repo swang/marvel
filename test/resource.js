@@ -18,14 +18,14 @@ describe('Resource', function() {
   })
 
   resourceCalls = [
-    'issueNumber'
-  , 'name'
-  , 'nameStartsWith'
-  , 'offset'
-  , 'orderBy'
-  , 'startYear'
-  , 'title'
-  , 'titleStartsWith'
+      'issueNumber'
+    , 'name'
+    , 'nameStartsWith'
+    , 'offset'
+    , 'orderBy'
+    , 'startYear'
+    , 'title'
+    , 'titleStartsWith'
   ]
 
   for (var i = 0; i < resourceCalls.length; i++) {
