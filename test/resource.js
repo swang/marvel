@@ -3,11 +3,19 @@
 var should = require('should')
   , Resource = require('../lib/resource.js')
 
+var opts = {
+  API_VERSION: 'v1',
+  publicKey: 'aaa',
+  privateKey: 'bbb',
+  apiDomain: 'https://gateway.marvel.com',
+  gzip: true
+}
+
 describe('Resource', function() {
   var resourceCalls, test
 
   beforeEach(function(done) {
-    test = new Resource('characters', { publicKey: 'aaa', privateKey: 'bbb' })
+    test = new Resource('characters', opts)
     done()
   })
 
@@ -18,23 +26,21 @@ describe('Resource', function() {
   })
 
   resourceCalls = [
-      'issueNumber'
-    , 'name'
+      'name'
     , 'nameStartsWith'
     , 'offset'
     , 'orderBy'
-    , 'startYear'
-    , 'title'
-    , 'titleStartsWith'
   ]
 
   for (var i = 0; i < resourceCalls.length; i++) {
-    describe(resourceCalls[i], function() {
-      it('should set ' + resourceCalls[i] + ' in `params` property', function() {
-        test[resourceCalls[i]]('_abcd')
-        test.param[resourceCalls[i]].should.equal('_abcd')
+    ;(function(descTest) {
+      describe(descTest, function() {
+        it('should set ' + descTest + ' in `params` property', function() {
+          test[descTest]('_abcd')
+          test.param[descTest].should.equal('_abcd')
+        })
       })
-    })
+    })(resourceCalls[i])
   }
 
   describe('limit', function() {

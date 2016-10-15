@@ -34,6 +34,7 @@ Marvel = function(opts) {
   this.gzip = opts.gzip
 
   resOpt = merge(opts, { API_VERSION: Marvel.API_VERSION })
+  console.log(resOpt)
   this.characters = new Resource('characters', resOpt)
   this.comics = new Resource('comics', resOpt)
   this.creators = new Resource('creators', resOpt)
