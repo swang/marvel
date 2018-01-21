@@ -2,13 +2,18 @@
 
 var Resource = require('./lib/resource.js')
 
-var Marvel, merge
+var Marvel, merge, hasProp
+
+hasProp = function(o, p) {
+  return Object.prototype.hasOwnProperty.call(o, p)
+}
 
 // merge
 merge = function(a, b) {
   var k
+
   for (k in a) {
-    if (a.hasOwnProperty(k) && b.hasOwnProperty(k) === false) {
+    if (hasProp(a, k) && hasProp(b, k) === false) {
       b[k] = a[k]
     }
   }
@@ -17,9 +22,10 @@ merge = function(a, b) {
 
 Marvel = function(opts) {
   var defaults = {
-    apiDomain: 'https://gateway.marvel.com'
-  , gzip: true
-  }, resOpt
+    apiDomain: 'https://gateway.marvel.com',
+    gzip: true
+  }
+  var resOpt
 
   opts = merge(defaults, opts || {})
 
