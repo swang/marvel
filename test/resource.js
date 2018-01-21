@@ -4,11 +4,11 @@ var should = require('should')
   , Resource = require('../lib/resource.js')
 
 var opts = {
-  'API_VERSION': 'v1',
-  'publicKey': 'aaa',
-  'privateKey': 'bbb',
-  'apiDomain': 'https://gateway.marvel.com',
-  'gzip': true
+  API_VERSION: 'v1',
+  publicKey: 'aaa',
+  privateKey: 'bbb',
+  apiDomain: 'https://gateway.marvel.com',
+  gzip: true
 }
 
 describe('Resource', function() {
