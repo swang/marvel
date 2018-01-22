@@ -5,6 +5,8 @@ Marvel is an API wrapper for Marvel's Comics API
 
 This is a new version of the library where the API is a bit clearer about what you're searching for.
 
+## v1.1 will be the last release to support node v0.10.0/v0.12.0
+
 # install
 
 ```
