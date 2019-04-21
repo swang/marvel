@@ -23,7 +23,6 @@ merge = function(a, b) {
 Marvel = function(opts) {
   var defaults = {
     apiDomain: 'https://gateway.marvel.com',
-    gzip: true
   }
   var resOpt
 
@@ -37,7 +36,6 @@ Marvel = function(opts) {
   this.publicKey = opts.publicKey
   this.privateKey = opts.privateKey
   this.apiDomain = opts.apiDomain
-  this.gzip = opts.gzip
 
   resOpt = merge(opts, { API_VERSION: Marvel.API_VERSION })
 
