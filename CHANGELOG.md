@@ -1,3 +1,6 @@
+1.1.1
+* added missing field `id` to all resource fields
+
 1.1
 ------
 * deprecated testing for node v0.8, should still run but isn't supported
