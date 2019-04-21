@@ -57,6 +57,9 @@ This new version of the Marvel library tries to make it easier to form queries.
 
 > ## characters
 
+##### #id(character_id)
+Searches for a character with an id of, `character_id`.
+
 ##### #name(name)
 Searches for the character named, `name`.
 
@@ -79,6 +82,9 @@ If two parameters are given, it returns `num` results only after `offset` record
 If only one parameter is given, it returns the first `num` results.
 
 > ## comics
+
+##### #id(comic_id)
+Searches for a comic with an id of, `comic_id`.
 
 ##### #format(name)
 Return comics that only contain format, `name`
@@ -157,6 +163,9 @@ If only one parameter is given, it returns the first `num` results.
 
 > ## creators
 
+##### #id(creator_id)
+Searches for a creator with an id of, `creator_id`.
+
 ##### #firstName(name)
 Searches for creators with first name, `name`.
 
@@ -198,6 +207,9 @@ If only one parameter is given, it returns the first `num` results.
 
 > ## events
 
+##### #id(event_id)
+Searches for an event with an id of `event_id`.
+
 ##### #name(name)
 Searches for the event named, `name`.
 
@@ -220,6 +232,9 @@ If two parameters are given, it returns `num` results only after `offset` record
 If only one parameter is given, it returns the first `num` results.
 
 > ## series
+
+##### #id(series_id)
+Searches for a series with an id of `series_id`.
 
 ##### #title(name)
 Searches for series named, `name`.
@@ -256,6 +271,9 @@ If two parameters are given, it returns `num` results only after `offset` record
 If only one parameter is given, it returns the first `num` results.
 
 > ## stories
+
+##### #id(story_id)
+Searches for a story with an id of `story_id`.
 
 ##### #modifiedSince(date)
 Limits results to characters that have been modified after inputed `date` (format is: 2014-06-10T16:12:58-0400).
