@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 var Resource = require('./lib/resource.js')
 
@@ -22,14 +22,16 @@ merge = function(a, b) {
 
 Marvel = function(opts) {
   var defaults = {
-    apiDomain: 'https://gateway.marvel.com',
+    apiDomain: 'https://gateway.marvel.com'
   }
   var resOpt
 
   opts = merge(defaults, opts || {})
 
   if (opts.privateKey === undefined || opts.publicKey === undefined) {
-    throw new Error('Unable to create a hash because of missing privateKey/publicKey')
+    throw new Error(
+      'Unable to create a hash because of missing privateKey/publicKey'
+    )
   }
 
   this.param = {}
@@ -45,7 +47,6 @@ Marvel = function(opts) {
   this.events = new Resource('events', resOpt)
   this.series = new Resource('series', resOpt)
   this.stories = new Resource('stories', resOpt)
-
 }
 
 Marvel.API_VERSION = 'v1'
