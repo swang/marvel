@@ -15,6 +15,34 @@ describe('Marvel', function() {
       should(false).ok()
     })
   })
+  describe('keys', function() {
+    it('should set public/private keys with keys()', function() {
+      var x = new Marvel({
+        privateKey: 'aaa',
+        publicKey: 'bbb'
+      })
+
+      x.privateKey.should.eql('aaa')
+      x.publicKey.should.eql('bbb')
+      x.keys('ccc', 'ddd')
+      x.privateKey.should.eql('ccc')
+      x.publicKey.should.eql('ddd')
+    })
+  })
+  describe('invalid domain set', function() {
+    it('should generate an http error', function() {
+      var Marvel = require('../index')
+      var marvel = new Marvel({
+        privateKey: 'aaa',
+        publicKey: 'bbb',
+        apiDomain: 'https://invalidUrl.what'
+      })
+      marvel.characters
+        .name('Hulk')
+        .get()
+        .should.be.rejectedWith(/ENOTFOUND/)
+    })
+  })
 })
 
 describe('marvel.events.*.get', function() {
@@ -90,7 +118,6 @@ describe('marvel.characters.*.get', function() {
       )
     })
   })
-
 })
 
 describe('marvel.characters.*.get (as a promise)', function() {
@@ -110,14 +137,27 @@ describe('marvel.characters.*.get (as a promise)', function() {
   })
 
   it('should return hulk data using a promise', function() {
-    marvel.characters.name('Hulk').get().then(function(resp) {
-      resp[0].id.should.eql(1009351)
-      resp[0].name.should.eql('Hulk')
-      resp[0].resourceURI.should.eql('http://gateway.marvel.com/v1/public/characters/1009351')
-      resp[0].should.have.properties('comics', 'series', 'stories', 'events', 'urls', 'thumbnail', 'resourceURI')
-    }).catch(function(err) {
-      should.not.exist(err)
-    })
+    marvel.characters
+      .name('Hulk')
+      .get()
+      .then(function(resp) {
+        resp[0].id.should.eql(1009351)
+        resp[0].name.should.eql('Hulk')
+        resp[0].resourceURI.should.eql(
+          'http://gateway.marvel.com/v1/public/characters/1009351'
+        )
+        resp[0].should.have.properties(
+          'comics',
+          'series',
+          'stories',
+          'events',
+          'urls',
+          'thumbnail',
+          'resourceURI'
+        )
+      })
+      .catch(function(err) {
+        should.not.exist(err)
+      })
   })
-
 })
