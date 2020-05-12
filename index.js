@@ -2,31 +2,15 @@
 
 var Resource = require('./lib/resource.js')
 
-var Marvel, merge, hasProp
+var Marvel
 
-hasProp = function(o, p) {
-  return Object.prototype.hasOwnProperty.call(o, p)
-}
-
-// merge
-merge = function(a, b) {
-  var k
-
-  for (k in a) {
-    if (hasProp(a, k) && hasProp(b, k) === false) {
-      b[k] = a[k]
-    }
-  }
-  return b
-}
-
-Marvel = function(opts) {
+Marvel = function(opts = {}) {
   var defaults = {
     apiDomain: 'https://gateway.marvel.com'
   }
   var resOpt
 
-  opts = merge(defaults, opts || {})
+  opts = { ...defaults, ...opts, API_VERSION: Marvel.API_VERSION }
 
   if (opts.privateKey === undefined || opts.publicKey === undefined) {
     throw new Error(
@@ -39,14 +23,12 @@ Marvel = function(opts) {
   this.privateKey = opts.privateKey
   this.apiDomain = opts.apiDomain
 
-  resOpt = merge(opts, { API_VERSION: Marvel.API_VERSION })
-
-  this.characters = new Resource('characters', resOpt)
-  this.comics = new Resource('comics', resOpt)
-  this.creators = new Resource('creators', resOpt)
-  this.events = new Resource('events', resOpt)
-  this.series = new Resource('series', resOpt)
-  this.stories = new Resource('stories', resOpt)
+  this.characters = new Resource('characters', opts)
+  this.comics = new Resource('comics', opts)
+  this.creators = new Resource('creators', opts)
+  this.events = new Resource('events', opts)
+  this.series = new Resource('series', opts)
+  this.stories = new Resource('stories', opts)
 }
 
 Marvel.API_VERSION = 'v1'

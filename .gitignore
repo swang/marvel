@@ -2,3 +2,4 @@
 npm-debug.log
 node_modules/*
 old/*
+.nyc_output/

@@ -4,7 +4,7 @@
   "description": "API wrapper for Marvel Comics",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/*.js --reporter=spec"
+    "test": "nyc mocha test/*.js --reporter=spec"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "mocha": "^7.1.2",
+    "nyc": "^15.0.1",
     "prettier": "1.17.1",
     "should": "~13.2.3",
     "sinon": "~7.3.2"

@@ -50,6 +50,16 @@ marvel.events
       })
   })
 ```
+## call as a promise
+if you would like to use this library with promises, new in v1.2.0 is the ability to return a promise if you decide not to pass in a callback function to `get()`
+
+example:
+```js
+marvel.events.name('civil war').get().then(function(results) {
+  console.log(results);
+})
+```
+
 
 # documentation
 
